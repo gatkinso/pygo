@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package main;
+
+message Stencil
+{
+    map<string, string> string_values = 100;
+    map<string, int32> int_values     = 200;
+    map<string, bool> bool_values     = 300;
+}
