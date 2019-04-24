@@ -1,8 +1,8 @@
-This is a very POC example of haow to create a Protocol Buffer message in Python,
+This is a very POC example of how to create a Protocol Buffer message in Python,
 serialize it in JSON format, pass the JSON string to a Python extention written in Go 
 (with a cgo preamble), deserialize the protocol message in Go, and display it.
 
-I have never programmed in Go before in my life.
+I have never programmed in Go before in my life.  Nor do I have a problem with run on sentences.
 
 Set this:
 $ export GOPATH=~/go
