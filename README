@@ -1,5 +1,30 @@
-(env) geoffrey@:~/source/pygo$ export GOPATH=~/go
-(env) geoffrey@:~/source/pygo$ export PATH=$PATH:~/go/bin
-(env) geoffrey@:~/source/pygo$ protoc -I=. --go_out=. stencil.proto
-(env) geoffrey@:~/source/pygo$ protoc --proto_path=. --python_out=. stencil.proto
-(env) geoffrey@:~/source/pygo$ go build -buildmode=c-shared -o libagent.so
+This is a very POC example of haow to create a Protocol Buffer message in Python,
+serialize it in JSON format, pass the JSON string to a Python extention written in Go 
+(with a cgo preamble), deserialize the protocol message in Go, and display it.
+
+I have never programmed in Go before in my life.
+
+Set this:
+$ export GOPATH=~/go
+$ export PATH=$PATH:~/go/bin
+
+Run this:
+$ protoc -I=. --go_out=. stencil.proto
+$ protoc --proto_path=. --python_out=. stencil.proto
+
+Build like so:
+$ go build -buildmode=c-shared -o libagent.so
+
+Run like so:
+$ python pygo.py
+
+You should see something along the lines of:
+
+string_values:<key:"pid" value:"18290" > string_values:<key:"tid" value:"140283880634176" > string_values:<key:"timestamp" value:"2019-04-24 00:59:36.388046" > string_values:<key:"uuid" value:"c46e9c2a-1b47-499a-ba3b-920292c4bbbe" >
+
+Note I am running in a python3 virtualenv.  YMMV.
+
+You will need to install protbuf in your python environment, jsonpb support, 
+and also Go support for Protocol Buffers:
+
+https://developers.google.com/protocol-buffers/docs/gotutorial

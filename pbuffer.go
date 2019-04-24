@@ -3,29 +3,19 @@ package main
 // #cgo pkg-config: python3
 // #define Py_LIMITED_API
 // #include <Python.h>
-// int PyArg_ParseTuple_LL(PyObject *, long long *, long long *);
 // int PyArg_ParseTuple_s(PyObject * args, char ** str);
 import "C" 
 
 import (
-	//"log"
+	"log"
 	"fmt"
-	//"strings"
-	//"github.com/golang/protobuf/jsonpb"
+	"strings"
+	"github.com/golang/protobuf/jsonpb"
 )
-
-//export add
-func add(self, args *C.PyObject) *C.PyObject {
-	var a, b C.longlong
-	if C.PyArg_ParseTuple_LL(args, &a, &b) == 0 {
-		return nil
-	}
-	return C.PyLong_FromLongLong(a + b)
-}
 
 //export setmsg
 func setmsg(self, args *C.PyObject) *C.PyObject {
-	//pb := &Stencil{}
+	pb := &Stencil{}
 
 	var buffer *C.char
 
@@ -33,15 +23,15 @@ func setmsg(self, args *C.PyObject) *C.PyObject {
 		return nil
 	}
 
-	//var go_buffer = C.GoString(buffer)
+	var go_buffer = C.GoString(buffer)
 
-	fmt.Println("Hi")
+	//fmt.Println(go_buffer)
 
-	//if err := jsonpb.Unmarshal(strings.NewReader(go_buffer), pb); err != nil {
-	//	log.Fatalln("Error converting JSON to proto:", err)
-	//}
+	if err := jsonpb.Unmarshal(strings.NewReader(go_buffer), pb); err != nil {
+		log.Fatalln("Error converting JSON to proto:", err)
+	}
 
-    //fmt.Println( pb.GetStringValues()["timestamp"] )
+    fmt.Println( pb )
 
 	return C.PyLong_FromLongLong(0)
 }
