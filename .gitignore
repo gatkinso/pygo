@@ -1,1 +1,6 @@
+__pycache__
 .vscode
+*.pb.go
+*_pb2.py
+*.so
+*.h

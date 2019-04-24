@@ -25,7 +25,7 @@ func add(self, args *C.PyObject) *C.PyObject {
 
 //export setmsg
 func setmsg(self, args *C.PyObject) *C.PyObject {
-	pb := &Stencil{}
+	//pb := &Stencil{}
 
 	var buffer *C.char
 
@@ -33,7 +33,7 @@ func setmsg(self, args *C.PyObject) *C.PyObject {
 		return nil
 	}
 
-	var go_buffer = C.GoString(buffer)
+	//var go_buffer = C.GoString(buffer)
 
 	fmt.Println("Hi")
 
@@ -43,7 +43,7 @@ func setmsg(self, args *C.PyObject) *C.PyObject {
 
     //fmt.Println( pb.GetStringValues()["timestamp"] )
 
-	return nil
+	return C.PyLong_FromLongLong(0)
 }
 
 func main() {}

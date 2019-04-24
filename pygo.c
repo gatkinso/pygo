@@ -12,17 +12,17 @@ int PyArg_ParseTuple_s(PyObject * args, char ** str) {
     return PyArg_ParseTuple(args, "s", str);
 }
 
-static PyMethodDef PygoMethods[] = {
+static PyMethodDef LibagentMethods[] = {
 	{"add", add, METH_VARARGS, "Add two numbers."},
-	{"setmsg", add, METH_VARARGS, "Pass json to Go."},
+	{"setmsg", setmsg, METH_VARARGS, "Pass json to Go."},
 	{NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef pygomodule = {
-	PyModuleDef_HEAD_INIT, "pygo", NULL, -1, PygoMethods
+static struct PyModuleDef libagentmodule = {
+	PyModuleDef_HEAD_INIT, "libagent", NULL, -1, LibagentMethods
 };
 
-PyMODINIT_FUNC PyInit_pygo(void)
+PyMODINIT_FUNC PyInit_libagent(void)
 {
-	return PyModule_Create(&pygomodule);
+	return PyModule_Create(&libagentmodule);
 }

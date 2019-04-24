@@ -1,6 +1,5 @@
-
-go build -buildmode=c-shared -o libagent.so
-
-protoc -I=. --go_out=. stencil.proto
-
-protoc --proto_path=. --python_out=. stencil.proto
+(env) geoffrey@:~/source/pygo$ export GOPATH=~/go
+(env) geoffrey@:~/source/pygo$ export PATH=$PATH:~/go/bin
+(env) geoffrey@:~/source/pygo$ protoc -I=. --go_out=. stencil.proto
+(env) geoffrey@:~/source/pygo$ protoc --proto_path=. --python_out=. stencil.proto
+(env) geoffrey@:~/source/pygo$ go build -buildmode=c-shared -o libagent.so
