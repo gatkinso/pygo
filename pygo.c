@@ -2,6 +2,7 @@
 #include <Python.h>
 
 PyObject* add(PyObject *self, PyObject *args);
+PyObject* setmsg(PyObject *self, PyObject *args);
 
 int PyArg_ParseTuple_LL(PyObject * args, long long * a, long long * b) {
     return PyArg_ParseTuple(args, "LL", a, b);
@@ -13,6 +14,7 @@ int PyArg_ParseTuple_s(PyObject * args, char ** str) {
 
 static PyMethodDef PygoMethods[] = {
 	{"add", add, METH_VARARGS, "Add two numbers."},
+	{"setmsg", add, METH_VARARGS, "Pass json to Go."},
 	{NULL, NULL, 0, NULL}
 };
 

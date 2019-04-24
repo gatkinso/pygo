@@ -1,0 +1,6 @@
+
+go build -buildmode=c-shared -o libagent.so
+
+protoc -I=. --go_out=. stencil.proto
+
+protoc --proto_path=. --python_out=. stencil.proto

@@ -8,9 +8,10 @@ package main
 import "C" 
 
 import (
-	"log"
-	"strings"
-	"github.com/golang/protobuf/jsonpb"
+	//"log"
+	"fmt"
+	//"strings"
+	//"github.com/golang/protobuf/jsonpb"
 )
 
 //export add
@@ -22,6 +23,7 @@ func add(self, args *C.PyObject) *C.PyObject {
 	return C.PyLong_FromLongLong(a + b)
 }
 
+//export setmsg
 func setmsg(self, args *C.PyObject) *C.PyObject {
 	pb := &Stencil{}
 
@@ -33,9 +35,13 @@ func setmsg(self, args *C.PyObject) *C.PyObject {
 
 	var go_buffer = C.GoString(buffer)
 
-	if err := jsonpb.Unmarshal(strings.NewReader(go_buffer), pb); err != nil {
-		log.Fatalln("Error converting JSON to proto:", err)
-	}
+	fmt.Println("Hi")
+
+	//if err := jsonpb.Unmarshal(strings.NewReader(go_buffer), pb); err != nil {
+	//	log.Fatalln("Error converting JSON to proto:", err)
+	//}
+
+    //fmt.Println( pb.GetStringValues()["timestamp"] )
 
 	return nil
 }
