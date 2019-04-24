@@ -25,13 +25,11 @@ func setmsg(self, args *C.PyObject) *C.PyObject {
 
 	var go_buffer = C.GoString(buffer)
 
-	//fmt.Println(go_buffer)
-
 	if err := jsonpb.Unmarshal(strings.NewReader(go_buffer), pb); err != nil {
 		log.Fatalln("Error converting JSON to proto:", err)
 	}
 
-    fmt.Println( pb )
+        fmt.Println( pb )
 
 	return C.PyLong_FromLongLong(0)
 }
