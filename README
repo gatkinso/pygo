@@ -1,5 +1,5 @@
 This is a very POC example of how to create a Protocol Buffer message in Python,
-serialize it in JSON format, pass the JSON string to a Python extention written in Go 
+serialize it in JSON format, pass the JSON string to a Python extension written in Go 
 (with a cgo preamble), deserialize the protocol message in Go, and display it.
 
 I have never programmed in Go before in my life.  Nor do I have a problem with run on sentences.
@@ -24,7 +24,7 @@ string_values:<key:"pid" value:"18290" > string_values:<key:"tid" value:"1402838
 
 Note I am running in a python3 virtualenv.  YMMV.
 
-You will need to install protbuf in your python environment, jsonpb support, 
+You will need to install protobuf in your python environment, jsonpb support, 
 and also Go support for Protocol Buffers:
 
 https://developers.google.com/protocol-buffers/docs/gotutorial
