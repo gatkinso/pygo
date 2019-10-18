@@ -22,7 +22,7 @@ You should see something along the lines of:
 
 string_values:<key:"pid" value:"18290" > string_values:<key:"tid" value:"140283880634176" > string_values:<key:"timestamp" value:"2019-04-24 00:59:36.388046" > string_values:<key:"uuid" value:"c46e9c2a-1b47-499a-ba3b-920292c4bbbe" >
 
-Note I am running in a python3 virtualenv.  YMMV.
+Note I am running in a python3 virtualenv on Linux.  YMMV.
 
 You will need to install protobuf in your python environment, jsonpb support, 
 and also Go support for Protocol Buffers:
